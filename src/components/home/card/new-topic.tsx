@@ -4,12 +4,12 @@ import { ChartNoAxesColumnIncreasing, Heart } from "lucide-react";
 
 function NewTopicCard() {
     return (
-        <Card className="w-full p-4 gap-[18px] cursor-pointer" onClick={() => {}}>
+        <Card className="w-full p-4 gap-4 cursor-pointer" onClick={() => {}}>
             <div className="w-full flex gap-4">
                 <img src="" alt="" className="min-w-30 w-30 h-30 rounded-lg" />
                 <div className="flex flex-col justify-between">
                     {/* 제목 */}
-                    <h4 className="scroll-m-20 text-lg font-semibold tracking-tight">스나이퍼팩토리 한글과 컴퓨터 AI 아카데미 2기</h4>
+                    <h4 className="scroll-m-20 text-base font-semibold tracking-tight">스나이퍼팩토리 한글과 컴퓨터 AI 아카데미 2기</h4>
                     {/* 본문 */}
                     <p className="text-neutral-500 line-clamp-3">
                         스나이퍼팩토리 한글과 컴퓨터 AI 아카데미 2기 스나이퍼팩토리 한글과 컴퓨터 AI 아카데미 2기 스나이퍼팩토리 한글과 컴퓨터 AI 아카데미 2기 스나이퍼팩토리 한글과 컴퓨터 AI 아카데미
