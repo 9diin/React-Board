@@ -3,7 +3,7 @@ import { Separator } from "../ui/separator";
 
 function AppHeader() {
     return (
-        <div className="w-full flex items-center justify-between px-6 py-2 bg-[#121212]">
+        <div className="w-full flex items-center justify-between px-6 py-[6px] bg-[#121212]">
             <div className="flex items-center gap-3">
                 {/* 로고 이미지 */}
                 <img src="src/assets/logo-sm.svg" alt="" className="w-9 h-9" />
