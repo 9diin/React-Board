@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { Button } from "../ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { Eye, EyeOff } from "lucide-react";
@@ -9,6 +9,8 @@ import { Input } from "../ui/input";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { supabase } from "@/lib/supabase";
+import { toast } from "sonner";
 
 const formSchema = z.object({
     email: z.email({
@@ -20,6 +22,7 @@ const formSchema = z.object({
 });
 
 function SignInForm() {
+    const navigate = useNavigate();
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -30,7 +33,20 @@ function SignInForm() {
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const handleToggle = () => setShowPassword((prev) => !prev);
 
-    const onSubmit = () => {};
+    const onSubmit = async (values: z.infer<typeof formSchema>) => {
+        const { data, error } = await supabase.auth.signInWithPassword({
+            email: values.email,
+            password: values.password,
+        });
+
+        if (error) {
+            toast.error("회원정보가 일치하지 않습니다.");
+        } else if (!error && data.user && data.session) {
+            toast.success("로그인을 성공하였습니다.");
+            navigate("/"); // 메인 페이지로 리다이렉션
+            console.log(data);
+        }
+    };
 
     return (
         <Card className="w-full max-w-100 border-0 sm:border bg-transparent sm:bg-card">

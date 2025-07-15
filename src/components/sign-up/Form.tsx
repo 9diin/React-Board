@@ -9,7 +9,9 @@ import { z } from "zod";
 import { Button } from "../ui/button";
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { supabase } from "@/lib/supabase";
+import { toast } from "sonner";
 
 // 유효성 체크 - Validation Check
 const formSchema = z.object({
@@ -25,6 +27,7 @@ const formSchema = z.object({
 });
 
 function SignUpForm() {
+    const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
 
@@ -43,7 +46,20 @@ function SignUpForm() {
     };
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
-        console.log(values);
+        try {
+            const { data } = await supabase.auth.signUp({
+                email: values.email,
+                password: values.password,
+            });
+
+            if (data) {
+                toast.success("회원가입을 완료하였습니다.");
+                navigate("/sign-in"); // 로그인 페이지로 리다이렉션
+            }
+        } catch (error) {
+            console.log(error);
+            throw new Error("요청을 처리하는 중 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.");
+        }
     };
 
     return (
