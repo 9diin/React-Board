@@ -8,16 +8,9 @@ function AppHeader() {
                 <div className="flex items-center gap-4">
                     <img src={"/assets/icons/logo-sm.svg"} alt="img" className="w-9 h-9 cursor-pointer" />
                     <div className="flex items-center gap-4">
-                        <Link to={"/classes"}>클래스</Link>
-                        <Link to={"/class-materials"}>배움 노트</Link>
+                        <Link to={"/"}>포트폴리오</Link>
                         <Separator orientation="vertical" className="!h-4" />
-                        <Link to={"/topics"}>토픽 인사이트</Link>
-                        <Separator orientation="vertical" className="!h-4" />
-                        <Link to={"/ming-labs"}>밍랩</Link>
-                        <Link to={"/stage"}>밍고 스테이지</Link>
-                        <Separator orientation="vertical" className="!h-4" />
-                        <Link to={"/store"}>밍고 스토어</Link>
-                        <Link to={"/mingazines"}>밍거진</Link>
+                        <Link to={"/topics"}>개발 인사이트</Link>
                     </div>
                 </div>
                 <div className="flex items-center gap-4">

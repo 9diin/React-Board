@@ -9,6 +9,8 @@ import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ArrowLeft, Asterisk, ImageOff, Rocket } from "lucide-react";
 
+import { CREATE_TOPIC_CATEGORY } from "@/constants/topic-category.constant";
+
 function NewTopicPage() {
     return (
         <div className="page">
@@ -19,13 +21,13 @@ function NewTopicPage() {
                     <Input placeholder="토픽 제목을 입력하세요." maxLength={50} className="border-none h-16 px-6 !text-lg placeholder:text-lg" />
                     <div className="w-full flex items-start gap-6">
                         {/* 카테고리 & 썸네일 영역 */}
-                        <div className="w-[30%] flex flex-col gap-6">
+                        <div className="w-full sm:max-w-[308px] h-full flex flex-col gap-4 sm:gap-6 lg:w-1/4 lg:min-w-[308px]">
                             <div className="flex items-center gap-2">
                                 <Button variant="outline">
                                     <ArrowLeft />
                                 </Button>
                                 <Button variant="outline">임시 저장</Button>
-                                <Button variant="destructive">
+                                <Button variant="destructive" className="flex-1">
                                     <Rocket />
                                     토픽 발행하기
                                 </Button>
@@ -42,12 +44,21 @@ function NewTopicPage() {
                                     </SelectTrigger>
                                     <SelectContent>
                                         <SelectGroup>
-                                            <SelectLabel>Fruits</SelectLabel>
-                                            <SelectItem value="apple">Apple</SelectItem>
-                                            <SelectItem value="banana">Banana</SelectItem>
-                                            <SelectItem value="blueberry">Blueberry</SelectItem>
-                                            <SelectItem value="grapes">Grapes</SelectItem>
-                                            <SelectItem value="pineapple">Pineapple</SelectItem>
+                                            <SelectLabel>토픽 Topic</SelectLabel>
+                                            {CREATE_TOPIC_CATEGORY.map((item) => {
+                                                return (
+                                                    <SelectItem key={item.id} value={item.category}>
+                                                        {item.label}
+                                                    </SelectItem>
+                                                );
+                                            })}
+                                            {/* <SelectItem value="humanity">인문학</SelectItem>
+                                            <SelectItem value="start-up">스타트업</SelectItem>
+                                            <SelectItem value="programming">IT&middot;프로그래밍</SelectItem>
+                                            <SelectItem value="planning">서비스&middot;전략 기획</SelectItem>
+                                            <SelectItem value="marketing">마케팅</SelectItem>
+                                            <SelectItem value="design">디자인&middot;일러스트</SelectItem>
+                                            <SelectItem value="self-development">자기계발</SelectItem> */}
                                         </SelectGroup>
                                     </SelectContent>
                                 </Select>

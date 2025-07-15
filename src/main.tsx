@@ -12,12 +12,12 @@ import NewTopicPage from "./pages/topics/new-topic.tsx"; // 토픽 작성 페이
 
 createRoot(document.getElementById("root")!).render(
     <StrictMode>
-        <ThemeProvider>
+        <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<App />}></Route>
-                    <Route path="/sign-up" element={<SignInPage />}></Route>
-                    <Route path="/sign-in" element={<SignUpPage />}></Route>
+                    <Route path="/sign-up" element={<SignUpPage />}></Route>
+                    <Route path="/sign-in" element={<SignInPage />}></Route>
                     <Route path="/topics/new-topic" element={<NewTopicPage />}></Route>
                 </Routes>
             </BrowserRouter>
