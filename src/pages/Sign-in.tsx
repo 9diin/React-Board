@@ -1,13 +1,5 @@
-import AppFooter from "@/components/common/AppFooter";
-import AppHeader from "@/components/common/AppHeader";
-
 function SignInPage() {
-    return (
-        <div>
-            <AppHeader />
-            <AppFooter />
-        </div>
-    );
+    return <div>SignInPage</div>;
 }
 
 export default SignInPage;

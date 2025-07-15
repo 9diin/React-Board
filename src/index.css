@@ -113,11 +113,6 @@
 @layer base {
     * {
         @apply border-border outline-ring/50;
-
-        scrollbar-width: none;
-        ::-webkit-scrollbar {
-            display: none;
-        }
     }
     body {
         @apply bg-background text-foreground text-sm;
@@ -137,7 +132,9 @@
 
     .container {
         width: 100%;
-        max-width: 1280px;
+        max-width: 1328px;
+
+        padding-top: 52px;
 
         flex: 1;
     }

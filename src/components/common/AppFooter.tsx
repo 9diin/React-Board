@@ -14,7 +14,7 @@ function AppFooter() {
                 <Separator className="my-5" />
                 <div className="w-full flex flex-col items-start gap-12 lg:flex-row xl:gap-48">
                     <div className="flex flex-col gap-4">
-                        <img src={"/logo/large.svg"} alt="img" width={80} height={38} />
+                        <img src={"src/assets/icons/logo-lg.svg"} alt="img" className="w-20" />
                         <div className="hidden md:flex flex-col gap-1">
                             <div className="flex items-center gap-4">
                                 <p>대표이사 : 박성재</p>
