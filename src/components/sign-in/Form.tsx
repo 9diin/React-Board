@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router";
 import { Button } from "../ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
@@ -8,15 +9,11 @@ import { Input } from "../ui/input";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { useState } from "react";
 
 const formSchema = z.object({
-    email: z
-        .string()
-        .email({
-            message: "올바른 형식의 이메일 주소를 입력해주세요.",
-        })
-        .toLowerCase(),
+    email: z.email({
+        message: "올바른 형식의 이메일 주소를 입력해주세요.",
+    }),
     password: z.string().min(8, {
         message: "비밀번호는 최소 8자 이상이어야 합니다.",
     }),
