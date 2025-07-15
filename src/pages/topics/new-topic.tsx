@@ -16,7 +16,7 @@ function NewTopicPage() {
             <div className="container">
                 <div className="w-full flex flex-col p-6 gap-6">
                     {/* 토픽 제목 입력 UI */}
-                    <Input placeholder="토픽 제목을 입력하세요." maxLength={50} className="border-none h-14 px-4 !text-base placeholder:text-base" />
+                    <Input placeholder="토픽 제목을 입력하세요." maxLength={50} className="border-none h-16 px-6 !text-lg placeholder:text-lg" />
                     <div className="w-full flex items-start gap-6">
                         {/* 카테고리 & 썸네일 영역 */}
                         <div className="w-[30%] flex flex-col gap-6">
