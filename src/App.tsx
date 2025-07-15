@@ -1,12 +1,17 @@
 import { useState } from "react";
 import AppFooter from "./components/common/AppFooter";
 import AppHeader from "./components/common/AppHeader";
+
 import { CategorySelector } from "./components/common/category-selector";
 import { SkeletonHotTopicCard } from "./components/skeleton/hot-topic";
 import { SkeletonBasicTopicCard } from "./components/skeleton/new-topic";
+import { Button } from "./components/ui/button";
+import { PencilLine } from "lucide-react";
+import { useNavigate } from "react-router";
 
 function App() {
     const [category, setCategory] = useState<string>("");
+    const navigate = useNavigate();
 
     return (
         <div className="page">
@@ -52,8 +57,11 @@ function App() {
                     </section>
                 </div>
             </div>
-
             <AppFooter />
+            <Button variant={"destructive"} className="fixed bottom-8 !py-5 !px-6 text-white rounded-full opacity-80" onClick={() => navigate("/topics/new-topic")}>
+                <PencilLine />
+                토픽 작성하기
+            </Button>
         </div>
     );
 }

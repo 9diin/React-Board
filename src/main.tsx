@@ -5,9 +5,10 @@ import { ThemeProvider } from "@/components/theme-provider";
 
 import "./index.css";
 
-import App from "./App.tsx";
-import SignInPage from "./pages/sign-in.tsx";
-import SignUpPage from "./pages/sign-up.tsx";
+import App from "./App.tsx"; // 메인 페이지
+import SignInPage from "./pages/sign-in.tsx"; // 로그인 페이지
+import SignUpPage from "./pages/sign-up.tsx"; // 회원가입 페이지
+import NewTopicPage from "./pages/topics/new-topic.tsx"; // 토픽 작성 페이지
 
 createRoot(document.getElementById("root")!).render(
     <StrictMode>
@@ -17,6 +18,7 @@ createRoot(document.getElementById("root")!).render(
                     <Route path="/" element={<App />}></Route>
                     <Route path="/sign-up" element={<SignInPage />}></Route>
                     <Route path="/sign-in" element={<SignUpPage />}></Route>
+                    <Route path="/topics/new-topic" element={<NewTopicPage />}></Route>
                 </Routes>
             </BrowserRouter>
         </ThemeProvider>

@@ -6,7 +6,7 @@ function AppHeader() {
         <header className="fixed top-0 z-20 w-full flex items-center justify-center bg-[#121212]">
             <div className="w-full max-w-[1328px] h-13 flex items-center justify-between px-4 sm:px-6">
                 <div className="flex items-center gap-4">
-                    <img src={"src/assets/icons/logo-sm.svg"} alt="img" className="w-9 h-9 cursor-pointer" />
+                    <img src={"/assets/icons/logo-sm.svg"} alt="img" className="w-9 h-9 cursor-pointer" />
                     <div className="flex items-center gap-4">
                         <Link to={"/classes"}>클래스</Link>
                         <Link to={"/class-materials"}>배움 노트</Link>

@@ -139,3 +139,13 @@
         flex: 1;
     }
 }
+
+.bn-editor {
+    background-color: transparent !important;
+}
+
+@media screen and (max-width: 640px) {
+    .ProseMirror {
+        padding: 0 !important;
+    }
+}
