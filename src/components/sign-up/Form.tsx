@@ -47,14 +47,20 @@ function SignUpForm() {
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
-            const { data } = await supabase.auth.signUp({
+            const { data, error } = await supabase.auth.signUp({
                 email: values.email,
                 password: values.password,
             });
 
-            if (data) {
+            console.log(data);
+
+            if (data.user && data.session) {
                 toast.success("회원가입을 완료하였습니다.");
                 navigate("/sign-in"); // 로그인 페이지로 리다이렉션
+            }
+
+            if (error) {
+                toast.error("회원가입을 실패하였습니다. 다시 시도해주세요.");
             }
         } catch (error) {
             console.log(error);

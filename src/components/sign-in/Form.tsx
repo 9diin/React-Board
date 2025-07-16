@@ -11,6 +11,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { supabase } from "@/lib/supabase";
 import { toast } from "sonner";
+import { useAuthStore } from "@/stores/auth";
 
 const formSchema = z.object({
     email: z.email({
@@ -23,6 +24,12 @@ const formSchema = z.object({
 
 function SignInForm() {
     const navigate = useNavigate();
+    // Zustand 스토어에서 상태와 액션을 가져옵니다.
+    // const user = useAuthStore((state) => state.user);
+    // const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+    const setUser = useAuthStore((state) => state.setUser);
+    // const clearUser = useAuthStore((state) => state.clearUser);
+
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -45,6 +52,12 @@ function SignInForm() {
             toast.success("로그인을 성공하였습니다.");
             navigate("/"); // 메인 페이지로 리다이렉션
             console.log(data);
+
+            // 실제 애플리케이션에서는 API호출을 통해 사용자 정보를 받아옵니다.
+            const loggedInUser = { id: data.user.id, email: data.user.email ?? "" };
+            setUser(loggedInUser);
+
+            // Zustand 측으로 Supabase 쪽에서 전달받은 User 정보를 Store에 저장한다.
         }
     };
 
