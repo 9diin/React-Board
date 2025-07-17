@@ -52,8 +52,6 @@ function SignUpForm() {
                 password: values.password,
             });
 
-            console.log(data);
-
             if (data.user && data.session) {
                 toast.success("회원가입을 완료하였습니다.");
                 navigate("/sign-in"); // 로그인 페이지로 리다이렉션

@@ -61,6 +61,18 @@ function SignInForm() {
         }
     };
 
+    const signInWithKakao = async () => {
+        const { data, error } = await supabase.auth.signInWithOAuth({
+            provider: "kakao",
+            options: {
+                redirectTo: `https://epqivibtzsohrzojvoqw.supabase.co/auth/v1/callback`,
+            },
+        });
+        console.log(error);
+
+        console.log(data);
+    };
+
     return (
         <Card className="w-full max-w-100 border-0 sm:border bg-transparent sm:bg-card">
             <CardHeader className="px-0 sm:px-6">
@@ -70,7 +82,7 @@ function SignInForm() {
             <CardContent className="grid gap-4 px-0 sm:px-6">
                 {/* 소셜 로그인 */}
                 <div className="grid grid-cols-1 gap-3">
-                    <Button type="button" className="bg-[#FEE500] hover:bg-[#FEE500] font-medium">
+                    <Button type="button" className="bg-[#FEE500] hover:bg-[#FEE500] font-medium" onClick={signInWithKakao}>
                         <img src={"/assets/icons/kakao.svg"} alt="img" width={18} height={18} className="mr-1" />
                         카카오 로그인
                     </Button>

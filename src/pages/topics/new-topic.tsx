@@ -1,6 +1,9 @@
+import { useState } from "react";
+
 import AppFooter from "@/components/common/AppFooter";
 import AppHeader from "@/components/common/AppHeader";
 import TextEditor from "@/components/common/text-editor";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -12,6 +15,11 @@ import { ArrowLeft, Asterisk, ImageOff, Rocket } from "lucide-react";
 import { CREATE_TOPIC_CATEGORY } from "@/constants/topic-category.constant";
 
 function NewTopicPage() {
+    const [title, setTitle] = useState<string>("");
+    const [category, setCategory] = useState<string>("");
+    const [thumbnail, setThumbnail] = useState<string>("");
+    const [content, setContent] = useState<string>("");
+
     return (
         <div className="page">
             <AppHeader />
@@ -21,6 +29,7 @@ function NewTopicPage() {
                     <Input placeholder="토픽 제목을 입력하세요." maxLength={50} className="border-none h-16 px-6 !text-lg placeholder:text-lg" />
                     <div className="w-full flex items-start gap-6">
                         {/* 카테고리 & 썸네일 영역 */}
+                        <img src="서버에 저장된 이미지 URL" alt="" />
                         <div className="w-full sm:max-w-[308px] h-full flex flex-col gap-4 sm:gap-6 lg:w-1/4 lg:min-w-[308px]">
                             <div className="flex items-center gap-2">
                                 <Button variant="outline">
